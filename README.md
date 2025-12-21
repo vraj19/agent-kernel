@@ -28,14 +28,32 @@ INIT -> PLAN -> ACT -> OBSERVE -> DECIDE -> END
 - unexpected tool calls are prevented
 - deterministic re-runs where possible (using the checkpoint)
 
-### 3. **Lightweight Tool Validation**
+### 3. **ToolRunner (Controlled Tool Execution)**
+AgentKernel introduces a **ToolRunner** to explicitly manage tool execution.
+
+- agents declare intent to use tools during the plan
+- tools are executed only during the ACT
+- tools must be explicitly registered by name
+- execution is time bounded (threaded with timeouts)
+
+This creates a separation between:
+**agent reasoning** - what to do
+**tool execution** - how it is done
+
+```python
+from agentkernel import ToolRunner
+
+tool_runner = ToolRunner()
+tool_runner.register("web_search", web_search_fn)
+```
+### 4. **Lightweight Tool Validation**
 Before calling a tool, AgentKernel checks:
 
 - required parameters
 - correct types
 - safety boundaries (timeout, cost caps)
 
-### 4. **KernelNode (LangGraph Integration)**
+### 5. **KernelNode (LangGraph Integration)**
 A drop in node wrapper:
 
 ```python
@@ -44,7 +62,7 @@ graph.add_node("agent", KernelNode(agent_logic))
 ```
 This keeps all your LangGraph logic untouched, while adding structure under the hood.
 
-### 5. **Replay Friendly Traces**
+### 6. **Replay Friendly Traces**
 AgentKernel produces structured step traces that make debugging easier.
 
 

@@ -1,0 +1,9 @@
+LIFECYCLE_STAGES = ["INIT", "PLAN", "ACT", "OBSERVE", "DECIDE", "END"]
+
+LIFECYCLE_ORDER = {
+    "INIT": "PLAN",
+    "PLAN": "ACT",
+    "ACT": "OBSERVE",
+    "OBSERVE": "DECIDE",
+    "DECIDE": "END",
+}
