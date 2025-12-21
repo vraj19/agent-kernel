@@ -75,6 +75,11 @@ AgentKernel produces structured step traces that make debugging easier.
 AgentKernel only adds structure and determinism to LangGraph nodes.
 
 
+## Installation (Until PyPI release)
+
+Until the first PyPI release, install directly from GitHub:
+
+pip install git+https://github.com/vraj19/agent-kernel.git
 
 ## License
 MIT License.
