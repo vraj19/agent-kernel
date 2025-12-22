@@ -4,6 +4,7 @@ from .state_machine import AgentState, AgentStateMachine
 from .tool_validator import ToolValidator
 from .checkpoint import CheckpointManager
 from .tracer import KernelTracer
+from .tool_runner import ToolRunner
 from .constants import LIFECYCLE_STAGES, LIFECYCLE_ORDER
 
 
