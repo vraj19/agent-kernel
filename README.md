@@ -76,8 +76,8 @@ AgentKernel only adds structure and determinism to LangGraph nodes.
 
 
 ## Installation (Until PyPI release)
-```
-python
+
+```python
 pip install git+https://github.com/vraj19/agent-kernel.git
 ```
 ## License
